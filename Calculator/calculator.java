@@ -88,9 +88,6 @@ class Calculator {
     private static void calculate(int choice) throws InvalidInput {
         double ans = 0;
 
-        // double num1 = getNum1();
-        // double num2 = getNum2();
-
         switch (choice) {
 
             case 1:
