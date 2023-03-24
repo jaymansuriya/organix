@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:util="http://www.springframework.org/schema/util"
+
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        
+        "> <!-- bean definitions here -->
+
+	<context:component-scan
+		base-package="com.example.bean"></context:component-scan>
+
+	<util:list list-class="java.util.ArrayList" id="marks" >
+		<value>30</value>
+		<value>35</value>
+		<value>38</value>
+	</util:list>
+	
+	
+	
+	<util:list list-class="java.util.ArrayList" id="number" >
+		<value>1874563210</value>
+		<value>1874583210</value>
+		<value>1875863210</value>
+	</util:list>
+
+</beans>
