@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Organization Management with Employee</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+	integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand text-white">Organization Management with
+			Employee</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">Department
+						List</a></li>
+
+				<li class="nav-item"><a class="nav-link" th:href="@{/organization-list}">Organization
+						List</a></li>
+
+				<li class="nav-item"><a class="nav-link" th:href="@{/employee-list}">Employee
+						List</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="row mb-2 mt-4">
+			<div class="col-lg ">
+				<h2 class="">Organization List</h2>
+			</div>
+
+			<div class="col-lg text-right">
+				<a th:href="@{/organization/new}" class="btn btn-success btn-md mb-3 ">
+					<i class="fa-solid fa-plus "></i> Add Organization
+				</a>
+			</div>
+
+		</div>
+
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Organization ID</th>
+					<th>Organization Name</th>
+					<th>Owner Name</th>
+					<th>Organization Address</th>
+					<th>Contact No</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="organization: ${organizations}">
+					<td th:text="${organization.oID}"></td>
+					<td th:text="${organization.name}"></td>
+					<td th:text="${organization.ownerName}"></td>
+					<td th:text="${organization.address}"></td>
+					<td th:text="${organization.contactNo}"></td>
+					
+					
+					<td><a
+						th:href="@{/organization/edit/{id}(id=${organization.oID})}"
+						class="btn btn-warning mr-2 text-white"><i
+							class="fa-solid fa-pencil"></i></a> <a
+						th:href="@{/organization/{id}(id=${organization.oID})}"
+						class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
+				</tr>
+			</tbody>
+
+		</table>
+
+	</div>
+</body>
+</html>
